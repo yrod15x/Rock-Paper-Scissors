@@ -1,88 +1,67 @@
-const opciones = ['rock', 'paper', 'scisors']
+const opciones = ['rock', 'paper', 'scisors'];
 let puntJugador = 0;
 let puntMaquina = 0;
+let opJugador;
 
-function opcionMaquina()
-{
-    let op = Math.floor(Math.random() * opciones.length);
-    return opciones[op];
-}
 
-function opcionJugador()
+function jugarRonda()
 {
-    let op;
-    while(true)
-    {
-        //op = prompt("Type r for Rock - p for Paper, s for Scisors");
-        op = op.toLowerCase();
-        if(op === 'r' || op === 'p' || op === 's')
+    let ganador = "";
+    let opMaquina = opciones[Math.floor(Math.random() * opciones.length)];
+    if(opJugador === opciones[0] && opMaquina === opciones[2])
         {
-            break;
+            console.log("You win. Rock beats Scissors!");
+            ganador = "jugador";
         }
-    }
-    
-    switch (op) {
-        case 'r':
-            return opciones[0];
-            break;
-        case 'p':
-            return opciones[1];
-            break;
-        case 's':
-            return opciones[2];
-            break;
-        default:
-            return undefined;
-            break;
-    }
+        else if(opJugador === opciones[2] && opMaquina === opciones[0])
+        {
+            console.log("You lose. Rock beats Scissors!");
+            ganador = "maquina";
+        }
+        else if(opJugador === opciones[1] && opMaquina === opciones[0])
+        {
+            console.log("You win. Paper beats Rock!");
+            ganador = "jugador";
+        }
+        else if(opJugador === opciones[0] && opMaquina === opciones[1])
+        {
+            console.log("You lose. Paper beats Rock!");
+            ganador = "maquina";
+        }
+        else if(opJugador === opciones[2] && opMaquina === opciones[1])
+        {
+            console.log("You win. Scissors beat Paper!");
+            ganador = "jugador";
+        }
+        else if(opJugador === opciones[1] && opMaquina === opciones[2])
+        {
+            console.log("You lose. Scissors beat Paper!");
+            ganador = "maquina";
+        }
+        return ganador;
 }
 
-function jugarRonda(jugador, maquina)
+let btnPapel = document.querySelector("#papel");
+btnPapel.addEventListener("click", function()
 {
-    while(true)
-    {
-        jugador = opcionJugador();
-        maquina = opcionMaquina();
-        if(jugador != maquina)
-        {
-            break;
-        }
-    }
-    
-    let ganador;
-    
-    if(jugador === opciones[0] && maquina === opciones[2])
-    {
-        console.log("You win. Rock beats Scissors!");
-        ganador = "jugador";
-    }
-    else if(jugador === opciones[2] && maquina === opciones[0])
-    {
-        console.log("You lose. Rock beats Scissors!");
-        ganador = "maquina";
-    }
-    else if(jugador === opciones[1] && maquina === opciones[0])
-    {
-        console.log("You win. Paper beats Rock!");
-        ganador = "jugador";
-    }
-    else if(jugador === opciones[0] && maquina === opciones[1])
-    {
-        console.log("You lose. Paper beats Rock!");
-        ganador = "maquina";
-    }
-    else if(jugador === opciones[2] && maquina === opciones[1])
-    {
-        console.log("You win. Scissors beat Paper!");
-        ganador = "jugador";
-    }
-    else if(jugador === opciones[1] && maquina === opciones[2])
-    {
-        console.log("You lose. Scissors beat Paper!");
-        ganador = "maquina";
-    }
-    return ganador;
-}
+    opJugador = opciones[1];
+    jugarRonda();
+}); 
+
+
+let btnPiedra = document.querySelector("#piedra");
+btnPiedra.addEventListener("click", function()
+{
+    opJugador = opciones[0];
+    jugarRonda();
+});
+
+let btnTijera = document.querySelector("#tijera");
+btnTijera.addEventListener("click", function()
+{
+    opJugador = opciones[2];
+    jugarRonda();
+});
 
 function jugar(rondas)
 {
@@ -112,13 +91,8 @@ function jugar(rondas)
     }
 }
 
-//jugar(5);
+//jugar(1);
 
 //Mirar por que el btn no esta haciendo la función al hacer click
-let btnPapel = document.querySelector("#papel");
-btnPapel.addEventListener("click", ccambiar(btnPapel));
+ 
 
-function ccambiar(objeto)
-{
-    console.log(objeto.innerHTML);
-}
