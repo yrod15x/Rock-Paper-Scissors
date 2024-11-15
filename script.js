@@ -13,7 +13,7 @@ function opcionJugador()
     let op;
     while(true)
     {
-        op = prompt("Type r for Rock - p for Paper, s for Scisors");
+        //op = prompt("Type r for Rock - p for Paper, s for Scisors");
         op = op.toLowerCase();
         if(op === 'r' || op === 'p' || op === 's')
         {
@@ -29,7 +29,7 @@ function opcionJugador()
             return opciones[1];
             break;
         case 's':
-            return opciones[0];
+            return opciones[2];
             break;
         default:
             return undefined;
@@ -87,17 +87,15 @@ function jugarRonda(jugador, maquina)
 function jugar(rondas)
 {
     let ronda;
-    for(let i = 0; i < rondas; i++)
+    
+    ronda = jugarRonda();
+    if(ronda === "jugador")
     {
-        ronda = jugarRonda();
-        if(ronda === "jugador")
-        {
-            puntJugador++;
-        }
-        else if(ronda === "maquina")
-        {
-            puntMaquina++;
-        }
+        puntJugador++;
+    }
+    else if(ronda === "maquina")
+    {
+        puntMaquina++;
     }
 
     if(puntJugador > puntMaquina)
@@ -114,4 +112,13 @@ function jugar(rondas)
     }
 }
 
-jugar(5);
+//jugar(5);
+
+//Mirar por que el btn no esta haciendo la función al hacer click
+let btnPapel = document.querySelector("#papel");
+btnPapel.addEventListener("click", ccambiar(btnPapel));
+
+function ccambiar(objeto)
+{
+    console.log(objeto.innerHTML);
+}
