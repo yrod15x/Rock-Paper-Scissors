@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
-Odin project to create the Rock, paper and scissors with GUI
+JavaScript program to play the game for Odin Project Curse. Initially played in console.

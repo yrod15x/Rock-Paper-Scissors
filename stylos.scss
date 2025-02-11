@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@200..800&family=Special+Elite&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-family: "Special Elite", Georgia, "Geneva", sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+body 
+{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0px auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 12vh 80vh  8vh;
+    grid-row-gap: 1vh;
+    grid-template-areas: "cabecera" "contenido" "pie";
+    header
+    {
+        grid-area: cabecera;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: lime;
+        font-size: 2.8vw;
+        h1
+        {
+            background-color: lime;
+            color: #000;
+            padding-top: 1.5dvh;
+        }
+    }
+    main
+    {
+        grid-area: contenido;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+  
+        .batalla
+        {
+            box-shadow: 1dvw;
+            border: 0.01dvw solid lime;
+            height: 35dvh;
+            width: 25dvw;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 2.2dvw;
+            padding-top: 2.5dvh;
+            h3
+            {
+                color: lime;
+                font-weight: bold;
+            }
+            .botones
+            {
+                font-size: 1.5dvw;
+                margin-top: 2dvh;
+                button
+                {
+                    background-color: lime;
+                    width: 8dvw;
+                    height: 5dvh;
+                }
+            }
+        }
+        .estadisticas
+        {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            background-color: lime;
+            height: 35dvh;
+            width: 25dvw;
+            h2
+            {
+                font-size: 1.8dvw;
+                width: 25dvw;
+                text-align: center;
+                border: 0.01dvw solid lime;
+                padding-top: 1dvh;
+            }
+            p
+            {
+                background-color: lime;
+                color: #000;
+                font-size: 1.3dvw;
+                font-weight: bold;
+                margin: 1dvh 0;
+            }
+            .resultados
+            {
+                margin-bottom: 3dvh;
+            }
+        }
+    }
+    footer
+    {
+        grid-area: pie;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lime;
+        p
+        {
+            background-color: lime;
+            font-size: 1vw;
+            color: #000;
+            padding-top: 0.5dvh;
+        }
+        
+    }
+}  
